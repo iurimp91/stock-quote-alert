@@ -1,0 +1,16 @@
+/home/iurimp91/projetos/C#/stock-quote-alert/src/StockQuoteAlert/bin/Debug/net5.0/StockQuoteAlert
+/home/iurimp91/projetos/C#/stock-quote-alert/src/StockQuoteAlert/bin/Debug/net5.0/StockQuoteAlert.deps.json
+/home/iurimp91/projetos/C#/stock-quote-alert/src/StockQuoteAlert/bin/Debug/net5.0/StockQuoteAlert.runtimeconfig.json
+/home/iurimp91/projetos/C#/stock-quote-alert/src/StockQuoteAlert/bin/Debug/net5.0/StockQuoteAlert.runtimeconfig.dev.json
+/home/iurimp91/projetos/C#/stock-quote-alert/src/StockQuoteAlert/bin/Debug/net5.0/StockQuoteAlert.dll
+/home/iurimp91/projetos/C#/stock-quote-alert/src/StockQuoteAlert/bin/Debug/net5.0/ref/StockQuoteAlert.dll
+/home/iurimp91/projetos/C#/stock-quote-alert/src/StockQuoteAlert/bin/Debug/net5.0/StockQuoteAlert.pdb
+/home/iurimp91/projetos/C#/stock-quote-alert/src/StockQuoteAlert/obj/Debug/net5.0/StockQuoteAlert.csproj.AssemblyReference.cache
+/home/iurimp91/projetos/C#/stock-quote-alert/src/StockQuoteAlert/obj/Debug/net5.0/StockQuoteAlert.GeneratedMSBuildEditorConfig.editorconfig
+/home/iurimp91/projetos/C#/stock-quote-alert/src/StockQuoteAlert/obj/Debug/net5.0/StockQuoteAlert.AssemblyInfoInputs.cache
+/home/iurimp91/projetos/C#/stock-quote-alert/src/StockQuoteAlert/obj/Debug/net5.0/StockQuoteAlert.AssemblyInfo.cs
+/home/iurimp91/projetos/C#/stock-quote-alert/src/StockQuoteAlert/obj/Debug/net5.0/StockQuoteAlert.csproj.CoreCompileInputs.cache
+/home/iurimp91/projetos/C#/stock-quote-alert/src/StockQuoteAlert/obj/Debug/net5.0/StockQuoteAlert.dll
+/home/iurimp91/projetos/C#/stock-quote-alert/src/StockQuoteAlert/obj/Debug/net5.0/ref/StockQuoteAlert.dll
+/home/iurimp91/projetos/C#/stock-quote-alert/src/StockQuoteAlert/obj/Debug/net5.0/StockQuoteAlert.pdb
+/home/iurimp91/projetos/C#/stock-quote-alert/src/StockQuoteAlert/obj/Debug/net5.0/StockQuoteAlert.genruntimeconfig.cache
