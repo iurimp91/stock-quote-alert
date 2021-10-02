@@ -10,7 +10,7 @@ namespace StockQuoteAlert
         public ApiClient(string stockAsset)
         {
             this.queryUrl = queryUrl + stockAsset.ToUpper();
-            stockAsset = stockAsset.ToUpper();
+            this.stockAsset = stockAsset.ToUpper();
         }
 
         public string GetStockAssetData()
@@ -28,8 +28,9 @@ namespace StockQuoteAlert
         public double GetStockAssetPrice(string stockAssetData)
         {
             dynamic dynamicObject = JObject.Parse(stockAssetData);
+            var assetName = stockAsset;
 
-            return dynamicObject.results.stockAsset.price;
+            return dynamicObject.results.PETR4.price;
         }
     }
 }
