@@ -14,3 +14,5 @@
 /home/iurimp91/projetos/C#/stock-quote-alert/src/StockQuoteAlert/obj/Debug/net5.0/ref/StockQuoteAlert.dll
 /home/iurimp91/projetos/C#/stock-quote-alert/src/StockQuoteAlert/obj/Debug/net5.0/StockQuoteAlert.pdb
 /home/iurimp91/projetos/C#/stock-quote-alert/src/StockQuoteAlert/obj/Debug/net5.0/StockQuoteAlert.genruntimeconfig.cache
+/home/iurimp91/projetos/C#/stock-quote-alert/src/StockQuoteAlert/bin/Debug/net5.0/Newtonsoft.Json.dll
+/home/iurimp91/projetos/C#/stock-quote-alert/src/StockQuoteAlert/obj/Debug/net5.0/StockQuoteAlert.csproj.CopyComplete

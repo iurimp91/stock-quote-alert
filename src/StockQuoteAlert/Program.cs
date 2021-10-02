@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net;
-using System.Text.Json;
+using Newtonsoft.Json.Linq;
 
 namespace StockQuoteAlert
 {
@@ -14,8 +13,9 @@ namespace StockQuoteAlert
 
             using (WebClient client = new WebClient())
             {   
-                var data = client.DownloadString(queryUri);
-                System.Console.WriteLine(data);
+                dynamic json_data = client.DownloadString(queryUri);
+                dynamic oi =  JObject.Parse(json_data);
+                System.Console.WriteLine(oi.by);
             }
 
             Console.WriteLine("Hello World!");
