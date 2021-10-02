@@ -30,7 +30,7 @@ namespace StockQuoteAlert
             dynamic dynamicObject = JObject.Parse(stockAssetData);
             var assetName = stockAsset;
 
-            return dynamicObject.results.PETR4.price;
+            return dynamicObject.results[assetName].price;
         }
     }
 }
