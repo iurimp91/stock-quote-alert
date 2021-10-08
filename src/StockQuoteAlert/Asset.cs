@@ -1,4 +1,4 @@
-using System.Net;
+using System;
 using Newtonsoft.Json.Linq;
 
 namespace StockQuoteAlert
@@ -16,12 +16,25 @@ namespace StockQuoteAlert
             this.buyPrice = buyPrice;
         }
 
-        public double setCurrentPrice()
+        public void setCurrentPrice()
         {
             var assetData = GetAssetData();
             dynamic dynamicObject = JObject.Parse(assetData);
+            
+            currentPrice = dynamicObject.results[assetName].price;
+        }
 
-            return dynamicObject.results[assetName].price;
+        public void checkSellOrBuy()
+        {   
+            setCurrentPrice();
+            Console.WriteLine($"O preço atual é {currentPrice}");
+            if (currentPrice >= sellPrice)
+            {
+                System.Console.WriteLine("Venda!");
+            } else if (currentPrice <= buyPrice)
+            {
+                System.Console.WriteLine("Compra!");
+            }
         }
     }
 }

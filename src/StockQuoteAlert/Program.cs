@@ -18,7 +18,7 @@ namespace StockQuoteAlert
 
             var asset = new Asset(assetName, sellPrice, buyPrice);
 
-            Console.WriteLine(asset.setCurrentPrice());
+            asset.checkSellOrBuy();
 
             Console.WriteLine("Hello World!");
         }
