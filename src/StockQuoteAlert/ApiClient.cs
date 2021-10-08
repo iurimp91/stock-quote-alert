@@ -7,10 +7,15 @@ namespace StockQuoteAlert
     {
         public string queryUrl = "https://api.hgbrasil.com/finance/stock_price?key=f626405b&symbol=";
         private string stockAsset;
-        public ApiClient(string stockAsset)
+        public double currentPrice;
+        private double sellPrice;
+        private double buyPrice; 
+        public ApiClient(string stockAsset, double sellPrice, double buyPrice)
         {
             this.queryUrl = queryUrl + stockAsset.ToUpper();
             this.stockAsset = stockAsset.ToUpper();
+            this.sellPrice = sellPrice;
+            this.buyPrice = buyPrice;
         }
 
         public string GetStockAssetData()
