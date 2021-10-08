@@ -7,7 +7,7 @@ namespace StockQuoteAlert
         static void Main(string[] args)
         {   
             Console.WriteLine("Por favor, entre com o ativo a ser monitorado:");
-            var asset = Console.ReadLine();
+            var assetName = Console.ReadLine();
 
             Console.WriteLine("Por favor, entre com o preço para venda:");
             var sellPrice = Double.Parse(Console.ReadLine());
@@ -16,7 +16,9 @@ namespace StockQuoteAlert
             var buyPrice = Double.Parse(Console.ReadLine());
 
 
-            var apiClient = new ApiClient(asset, sellPrice, buyPrice);
+            var asset = new Asset(assetName, sellPrice, buyPrice);
+
+            Console.WriteLine(asset.setCurrentPrice());
 
             Console.WriteLine("Hello World!");
         }
