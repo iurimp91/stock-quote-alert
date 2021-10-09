@@ -32,10 +32,12 @@ namespace StockQuoteAlert
             Console.WriteLine($"O preço atual é {currentPrice}");
             if (currentPrice >= sellPrice)
             {
-                System.Console.WriteLine("Venda!");
+                System.Console.WriteLine("Valor de venda atingido, email enviado!");
+                timer.Enabled = false;
             } else if (currentPrice <= buyPrice)
             {
-                System.Console.WriteLine("Compra!");
+                System.Console.WriteLine("Valor de compra atingido, email enviado!");
+                timer.Enabled = false;
             }
         }
         
