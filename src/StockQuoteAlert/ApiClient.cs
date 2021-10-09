@@ -4,7 +4,7 @@ namespace StockQuoteAlert
 {
     public class ApiClient
     {
-        public string queryUrl = "https://api.hgbrasil.com/finance/stock_price?key=f626405b&symbol=";
+        private string queryUrl = "https://api.hgbrasil.com/finance/stock_price?key=f626405b&symbol=";
         private string assetName;
         public ApiClient(string assetName)
         {

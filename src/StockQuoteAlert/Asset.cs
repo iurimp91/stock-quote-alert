@@ -8,8 +8,8 @@ namespace StockQuoteAlert
     {
         private string assetName;
         public double currentPrice;
-        private double sellPrice;
-        private double buyPrice;
+        readonly double sellPrice;
+        readonly double buyPrice;
         private static Timer timer;
         public Asset(string assetName, double sellPrice, double buyPrice) : base(assetName)
         {
@@ -18,7 +18,7 @@ namespace StockQuoteAlert
             this.buyPrice = buyPrice;
         }
 
-        public void SetCurrentPrice()
+        private void SetCurrentPrice()
         {
             var assetData = GetAssetData();
             dynamic dynamicObject = JObject.Parse(assetData);
@@ -38,6 +38,7 @@ namespace StockQuoteAlert
                 System.Console.WriteLine("Compra!");
             }
         }
+        
         public void StartMonitoring()
         {
             timer = new Timer(2000);
