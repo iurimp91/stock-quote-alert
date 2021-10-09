@@ -1,4 +1,5 @@
 using System;
+using System.Timers;
 using Newtonsoft.Json.Linq;
 
 namespace StockQuoteAlert
@@ -8,7 +9,8 @@ namespace StockQuoteAlert
         private string assetName;
         public double currentPrice;
         private double sellPrice;
-        private double buyPrice; 
+        private double buyPrice;
+        private static Timer timer;
         public Asset(string assetName, double sellPrice, double buyPrice) : base(assetName)
         {
             this.assetName = assetName.ToUpper();
@@ -16,7 +18,7 @@ namespace StockQuoteAlert
             this.buyPrice = buyPrice;
         }
 
-        public void setCurrentPrice()
+        public void SetCurrentPrice()
         {
             var assetData = GetAssetData();
             dynamic dynamicObject = JObject.Parse(assetData);
@@ -24,9 +26,9 @@ namespace StockQuoteAlert
             currentPrice = dynamicObject.results[assetName].price;
         }
 
-        public void checkSellOrBuy()
+        private void CheckSellOrBuy()
         {   
-            setCurrentPrice();
+            SetCurrentPrice();
             Console.WriteLine($"O preço atual é {currentPrice}");
             if (currentPrice >= sellPrice)
             {
@@ -35,6 +37,18 @@ namespace StockQuoteAlert
             {
                 System.Console.WriteLine("Compra!");
             }
+        }
+        public void StartMonitoring()
+        {
+            timer = new Timer(2000);
+            timer.Elapsed += OnTimedEvent;
+            timer.AutoReset = true;
+            timer.Enabled = true;
+        }
+
+        private void OnTimedEvent(Object sender, ElapsedEventArgs e)
+        {
+            CheckSellOrBuy();
         }
     }
 }
