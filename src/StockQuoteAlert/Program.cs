@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json.Linq;
 
 namespace StockQuoteAlert
 {
@@ -6,23 +7,37 @@ namespace StockQuoteAlert
     {
         static void Main(string[] args)
         {   
-            Console.WriteLine("Por favor, entre com o ativo a ser monitorado:");
-            var assetName = Console.ReadLine();
+            try
+            {
+                Console.WriteLine("Por favor, entre com o ativo a ser monitorado:");
+                var assetName = Console.ReadLine();
 
-            Console.WriteLine("Por favor, entre com o preço para venda:");
-            var sellPrice = Double.Parse(Console.ReadLine());
+                var assetData = ApiClient.GetAssetData(assetName);
 
-            Console.WriteLine("Por favor, entre com o preço para compra:");
-            var buyPrice = Double.Parse(Console.ReadLine());
+                while(assetData.Contains("error"))
+                {
+                    System.Console.WriteLine("O ativo não existe. Por favor, tente novamente.");
+                    assetName = Console.ReadLine();
+                    assetData = ApiClient.GetAssetData(assetName);
+                }
 
-            var asset = new Asset(assetName, sellPrice, buyPrice);
+                Console.WriteLine("Por favor, entre com o preço para venda:");
+                var sellPrice = Double.Parse(Console.ReadLine());
 
-            asset.StartMonitoring();
+                Console.WriteLine("Por favor, entre com o preço para compra:");
+                var buyPrice = Double.Parse(Console.ReadLine());
+
+                var asset = new Asset(assetName, sellPrice, buyPrice);
+                
+                asset.StartMonitoring();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
             Console.WriteLine("Para fechar a aplicação aperte ENTER.");
             Console.ReadLine();
         }
-
-
     }
 }

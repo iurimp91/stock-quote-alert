@@ -11,7 +11,7 @@ namespace StockQuoteAlert
         readonly double sellPrice;
         readonly double buyPrice;
         private static Timer timer;
-        public Asset(string assetName, double sellPrice, double buyPrice) : base(assetName)
+        public Asset(string assetName, double sellPrice, double buyPrice)
         {
             this.assetName = assetName.ToUpper();
             this.sellPrice = sellPrice;
@@ -20,7 +20,7 @@ namespace StockQuoteAlert
 
         private void SetCurrentPrice()
         {
-            var assetData = GetAssetData();
+            var assetData = GetAssetData(assetName);
             dynamic dynamicObject = JObject.Parse(assetData);
             
             currentPrice = dynamicObject.results[assetName].price;
