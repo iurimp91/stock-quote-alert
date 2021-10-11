@@ -6,28 +6,39 @@ namespace StockQuoteAlert
     {
         static void Main(string[] args)
         {   
-            try
+            
+            string assetNameInput;
+            string assetName;
+            while(true)
             {
                 Console.WriteLine("Por favor, entre com o ativo a ser monitorado:");
-                var assetName = InputHandler.GetAndValidateAssetName();
-
-                Console.WriteLine("Por favor, entre com o preço para venda:");
-                var sellPrice = InputHandler.GetAndValidatePrice();
-
-                Console.WriteLine("Por favor, entre com o preço para compra:");
-                var buyPrice = InputHandler.GetAndValidatePrice(sellPrice);
-
-                var asset = new Asset(assetName, sellPrice, buyPrice);
+                assetNameInput = Console.ReadLine();
                 
-                asset.StartMonitoring();
+                try
+                {
+                    assetName = InputHandler.GetAndValidateAssetName(assetNameInput);
+                    if (assetName.Length != 0) break;
+                }
+                catch(Exception ex)
+                {
+                    System.Console.WriteLine(ex.Message);
+                }
             }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            
+            Console.WriteLine("Por favor, entre com o preço para venda:");
+            var sellPrice = InputHandler.GetAndValidatePrice();
 
+            Console.WriteLine("Por favor, entre com o preço para compra:");
+            var buyPrice = InputHandler.GetAndValidatePrice(sellPrice);
+
+            var asset = new Asset(assetName, sellPrice, buyPrice);
+            
+            asset.StartMonitoring();
+
+            
             Console.WriteLine("Para fechar a aplicação aperte ENTER.");
             Console.ReadLine();
+           
         }
     }
 }

@@ -3,18 +3,15 @@ using System.Globalization;
 
 namespace StockQuoteAlert
 {
-    class InputHandler
+    public class InputHandler
     {
-        public static string GetAndValidateAssetName()
+        public static string GetAndValidateAssetName(string assetName)
         {   
-            var assetName = Console.ReadLine();
             var assetData = ApiClient.GetAssetData(assetName);
 
-            while(assetData.Contains("error"))
+            if (assetData.Contains("error"))
             {
-                System.Console.WriteLine("O ativo não existe. Por favor, tente novamente.");
-                assetName = Console.ReadLine();
-                assetData = ApiClient.GetAssetData(assetName);
+               throw new ArgumentException("Invalid asset"); 
             }
 
             return assetName;
