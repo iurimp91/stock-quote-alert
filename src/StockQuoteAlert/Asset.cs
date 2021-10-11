@@ -30,22 +30,30 @@ namespace StockQuoteAlert
         {   
             SetCurrentPrice();
 
-            Console.WriteLine($"O preço atual é {currentPrice}");
             if (currentPrice >= sellPrice)
             {
-                System.Console.WriteLine("Valor de venda atingido, email enviado!");
+                Console.WriteLine($"O preço atual do ativo {assetName} é {currentPrice} e o valor de venda, {sellPrice}, foi atingido.");
+                System.Console.WriteLine("E-mail enviado! Caso queira monitorar novamente, reinicie a aplicação.");
                 EmailClient.SendEmail("[VENDA] Seu ativo atingiu o valor de venda.", timer);
+                Environment.Exit(0);
             }
-            if (currentPrice <= buyPrice)
+            else if (currentPrice <= buyPrice)
             {
-                System.Console.WriteLine("Valor de compra atingido, email enviado!");
+                Console.WriteLine($"O preço atual do ativo {assetName} é {currentPrice} e o valor de compra, {buyPrice}, foi atingido.");
+                System.Console.WriteLine("E-mail enviado! Caso queira monitorar novamente, reinicie a aplicação.");
                 EmailClient.SendEmail("[COMPRA] Seu ativo atingiu o valor de compra.", timer);
+                Environment.Exit(0);
+            }
+            else
+            {
+                Console.WriteLine($"O preço atual do ativo {assetName} é {currentPrice}. Valor para venda: {sellPrice}. Valor para compra: {buyPrice}.");
+                Console.WriteLine("Monitorando...");    
             }
         }
         
         public void StartMonitoring()
         {
-            timer = new Timer(2000);
+            timer = new Timer(5000);
             timer.Elapsed += OnTimedEvent;
             timer.AutoReset = true;
             timer.Enabled = true;

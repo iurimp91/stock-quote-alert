@@ -65,9 +65,8 @@ namespace StockQuoteAlert
             
             asset.StartMonitoring();
             
-            Console.WriteLine("Para fechar a aplicação aperte ENTER.");
+            Console.WriteLine("Para fechar a aplicação a qualquer momento aperte ENTER.");
             Console.ReadLine();
-           
         }
     }
 }
