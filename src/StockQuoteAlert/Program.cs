@@ -22,10 +22,26 @@ namespace StockQuoteAlert
                 }
 
                 Console.WriteLine("Por favor, entre com o preço para venda:");
-                var sellPrice = Double.Parse(Console.ReadLine());
+                var sellPriceInput = Console.ReadLine();
+
+                while(string.IsNullOrEmpty(sellPriceInput) || Double.Parse(sellPriceInput) <= 0)
+                {
+                    System.Console.WriteLine("O preço de venda não pode ser vazio, nem menor ou igual a zero. Por favor, tente novamente.");
+                    sellPriceInput = Console.ReadLine();
+                }
+
+                var sellPrice = Double.Parse(sellPriceInput);
 
                 Console.WriteLine("Por favor, entre com o preço para compra:");
-                var buyPrice = Double.Parse(Console.ReadLine());
+                var buyPriceInput = Console.ReadLine();
+
+                while(string.IsNullOrEmpty(buyPriceInput) || Double.Parse(buyPriceInput) <= 0 || Double.Parse(buyPriceInput) == sellPrice)
+                {
+                    System.Console.WriteLine("O preço de compra não pode ser vazio, nem menor ou igual a zero e nem igual ao preço de compra. Por favor, tente novamente.");
+                    buyPriceInput = Console.ReadLine();
+                }
+
+                var buyPrice = Double.Parse(buyPriceInput);
 
                 var asset = new Asset(assetName, sellPrice, buyPrice);
                 
