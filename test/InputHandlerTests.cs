@@ -10,7 +10,7 @@ namespace StockQuoteAlert.Tests
         {
             var userInput = "petr4";
 
-            var assetName = InputHandler.GetAndValidateAssetName(userInput);
+            var assetName = InputHandler.ValidateAssetName(userInput);
         }
     }
 }

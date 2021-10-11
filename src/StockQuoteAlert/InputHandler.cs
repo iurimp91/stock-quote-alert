@@ -5,42 +5,40 @@ namespace StockQuoteAlert
 {
     public class InputHandler
     {
-        public static string GetAndValidateAssetName(string assetName)
+        public static string ValidateAssetName(string assetName)
         {   
             var assetData = ApiClient.GetAssetData(assetName);
 
             if (assetData.Contains("error"))
             {
-               throw new ArgumentException("Invalid asset"); 
+               throw new ArgumentException("Nome do ativo inválido."); 
             }
 
             return assetName;
         }
 
-        public static double GetAndValidatePrice()
+        public static double ValidatePrice(string sellPriceInput)
         {
-            var sellPriceInput = Console.ReadLine();
+            var sellPrice = ConvertToDouble(sellPriceInput);
 
-            while(string.IsNullOrEmpty(sellPriceInput) || Double.Parse(sellPriceInput) <= 0)
+            if (sellPrice <= 0)
             {
-                System.Console.WriteLine("O preço de venda não pode ser vazio, nem menor ou igual a zero. Por favor, tente novamente.");
-                sellPriceInput = Console.ReadLine();
+                throw new ArgumentException("O valor deve ser maior que 0.");
             }
 
-            return ConvertToDouble(sellPriceInput);
+            return sellPrice;
         }
 
-        public static double GetAndValidatePrice(double sellPrice)
+        public static double ValidatePrice(string buyPriceInput, double sellPrice)
         {
-            var buyPriceInput = Console.ReadLine();
+            var buyPrice = ConvertToDouble(buyPriceInput);
 
-            while(string.IsNullOrEmpty(buyPriceInput) || Double.Parse(buyPriceInput) <= 0 || Double.Parse(buyPriceInput) == sellPrice)
+            while(buyPrice <= 0 || buyPrice == sellPrice)
             {
-                System.Console.WriteLine("O preço de compra não pode ser vazio, nem menor ou igual a zero e nem igual ao preço de compra. Por favor, tente novamente.");
-                buyPriceInput = Console.ReadLine();
+                throw new ArgumentException("O valor deve ser maior que 0 e não pode ser igual ao valor de venda.");
             }
 
-            return ConvertToDouble(buyPriceInput);
+            return buyPrice;
         }
 
         private static double ConvertToDouble(string priceString)

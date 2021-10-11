@@ -16,20 +16,50 @@ namespace StockQuoteAlert
                 
                 try
                 {
-                    assetName = InputHandler.GetAndValidateAssetName(assetNameInput);
-                    if (assetName.Length != 0) break;
+                    assetName = InputHandler.ValidateAssetName(assetNameInput);
+                    break;
                 }
                 catch(Exception ex)
                 {
                     System.Console.WriteLine(ex.Message);
                 }
             }
-            
-            Console.WriteLine("Por favor, entre com o preço para venda:");
-            var sellPrice = InputHandler.GetAndValidatePrice();
 
-            Console.WriteLine("Por favor, entre com o preço para compra:");
-            var buyPrice = InputHandler.GetAndValidatePrice(sellPrice);
+            string sellPriceInput;
+            double sellPrice;
+            while(true)
+            {
+                Console.WriteLine("Por favor, entre com o preço para venda:");
+                sellPriceInput = Console.ReadLine();
+                
+                try
+                {
+                    sellPrice = InputHandler.ValidatePrice(sellPriceInput);
+                    break;
+                }
+                catch(Exception ex)
+                {
+                    System.Console.WriteLine(ex.Message);
+                }
+            }
+
+            string buyPriceInput;
+            double buyPrice;
+            while(true)
+            {
+                Console.WriteLine("Por favor, entre com o preço para compra:");
+                buyPriceInput = Console.ReadLine();
+                
+                try
+                {
+                    buyPrice = InputHandler.ValidatePrice(buyPriceInput, sellPrice);
+                    break;
+                }
+                catch(Exception ex)
+                {
+                    System.Console.WriteLine(ex.Message);
+                }
+            }
 
             var asset = new Asset(assetName, sellPrice, buyPrice);
             
