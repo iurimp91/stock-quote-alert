@@ -64,7 +64,6 @@ namespace StockQuoteAlert
             var asset = new Asset(assetName, sellPrice, buyPrice);
             
             asset.StartMonitoring();
-
             
             Console.WriteLine("Para fechar a aplicação aperte ENTER.");
             Console.ReadLine();
