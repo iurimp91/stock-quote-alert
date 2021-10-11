@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json.Linq;
+using System.Globalization;
 
 namespace StockQuoteAlert
 {
@@ -30,7 +30,16 @@ namespace StockQuoteAlert
                     sellPriceInput = Console.ReadLine();
                 }
 
-                var sellPrice = Double.Parse(sellPriceInput);
+                double sellPrice;
+
+                if (sellPriceInput.Contains("."))
+                {
+                    sellPrice = Double.Parse(sellPriceInput, new CultureInfo("en-US"));
+                }
+                else
+                {
+                    sellPrice = Double.Parse(sellPriceInput);
+                }
 
                 Console.WriteLine("Por favor, entre com o preço para compra:");
                 var buyPriceInput = Console.ReadLine();
@@ -41,7 +50,16 @@ namespace StockQuoteAlert
                     buyPriceInput = Console.ReadLine();
                 }
 
-                var buyPrice = Double.Parse(buyPriceInput);
+                double buyPrice;
+
+                if (buyPriceInput.Contains("."))
+                {
+                    buyPrice = Double.Parse(buyPriceInput, new CultureInfo("en-US"));
+                }
+                else
+                {
+                    buyPrice = Double.Parse(buyPriceInput);
+                }
 
                 var asset = new Asset(assetName, sellPrice, buyPrice);
                 
