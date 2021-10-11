@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <configSections>  
+    <section name="ApplicationSettings" type="System.Configuration.NameValueSectionHandler"/>      
+  </configSections>      
+  <ApplicationSettings>  
+    <add key="Port" value="insert port here"/>  
+    <add key="Email" value="insert sender email here"/>  
+    <add key="Password" value="insert send email password here"/>  
+    <add key="Ssl" value="insert true or false for ssl security"/>  
+  </ApplicationSettings>
+</configuration>

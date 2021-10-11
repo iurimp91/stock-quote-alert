@@ -33,11 +33,10 @@ namespace StockQuoteAlert
             if (currentPrice >= sellPrice)
             {
                 System.Console.WriteLine("Valor de venda atingido, email enviado!");
-                timer.Enabled = false;
-            } else if (currentPrice <= buyPrice)
+                EmailClient.SendEmail("[VENDA] Seu ativo atingiu o valor de venda.", timer);            } else if (currentPrice <= buyPrice)
             {
                 System.Console.WriteLine("Valor de compra atingido, email enviado!");
-                timer.Enabled = false;
+                EmailClient.SendEmail("[COMPRA] Seu ativo atingiu o valor de compra.", timer);
             }
         }
         

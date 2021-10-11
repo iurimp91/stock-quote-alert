@@ -1,10 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "JjAWx8McR8lpeGGLmEde6NcEscKmMPW8JFruoRp5Q60ZetcgcUYc7eTN/jRjUYs1BFnuQb8WlotoQfQf4MIS2w==",
+  "dgSpecHash": "yVPzbzcA4w0PKL71FSXRWbTnf6iq9YsACuW8cxgr/2/tzYX9OU6t3cJ7sMXPVzFpisSwtz8YJARXOzbJasJ7+Q==",
   "success": true,
   "projectFilePath": "/home/iurimp91/projetos/C#/stock-quote-alert/src/StockQuoteAlert/StockQuoteAlert.csproj",
   "expectedPackageFiles": [
-    "/home/iurimp91/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512"
+    "/home/iurimp91/.nuget/packages/microsoft.netcore.platforms/2.0.0/microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "/home/iurimp91/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
+    "/home/iurimp91/.nuget/packages/system.configuration.configurationmanager/4.5.0/system.configuration.configurationmanager.4.5.0.nupkg.sha512",
+    "/home/iurimp91/.nuget/packages/system.security.accesscontrol/4.5.0/system.security.accesscontrol.4.5.0.nupkg.sha512",
+    "/home/iurimp91/.nuget/packages/system.security.cryptography.protecteddata/4.5.0/system.security.cryptography.protecteddata.4.5.0.nupkg.sha512",
+    "/home/iurimp91/.nuget/packages/system.security.permissions/4.5.0/system.security.permissions.4.5.0.nupkg.sha512",
+    "/home/iurimp91/.nuget/packages/system.security.principal.windows/4.5.0/system.security.principal.windows.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }
